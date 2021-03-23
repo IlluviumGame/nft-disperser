@@ -4,6 +4,7 @@ import { Contract, ContractFactory } from "ethers";
 // When running the script with `hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
 import { ethers } from "hardhat";
+import { NFTDisperser__factory } from "../typechain";
 
 async function main(): Promise<void> {
   // Hardhat always runs the compile task when running scripts through it.
@@ -12,11 +13,11 @@ async function main(): Promise<void> {
   // await run("compile");
 
   // We get the contract to deploy
-  const Greeter: ContractFactory = await ethers.getContractFactory("Greeter");
-  const greeter: Contract = await Greeter.deploy("Hello, Buidler!");
-  await greeter.deployed();
+  const NFTDisperser: NFTDisperser__factory = (await ethers.getContractFactory("NFTDisperser")) as NFTDisperser__factory;
+  const nftDisperser = await NFTDisperser.deploy();
+  await nftDisperser.deployed();
 
-  console.log("Greeter deployed to: ", greeter.address);
+  console.log(`Deployed at ${nftDisperser.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

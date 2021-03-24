@@ -1,5 +1,6 @@
 import "@nomiclabs/hardhat-waffle";
 import "@typechain/hardhat";
+import "@nomiclabs/hardhat-etherscan";
 import "solidity-coverage";
 
 import "./tasks/accounts";
@@ -86,6 +87,9 @@ const config: HardhatUserConfig = {
     outDir: "typechain",
     target: "ethers-v5",
   },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_KEY
+}
 };
 
 export default config;

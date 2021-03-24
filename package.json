@@ -7,6 +7,7 @@
     "url": "https://paulrberg.com"
   },
   "dependencies": {
+    "@nomiclabs/hardhat-etherscan": "^2.1.1",
     "@openzeppelin/contracts": "^4.0.0",
     "solc": "0.8.1"
   },
